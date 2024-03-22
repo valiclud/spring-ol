@@ -2,6 +2,7 @@ package com.example.springol.data;
 
 import com.example.springol.entity.OriginalText;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +22,10 @@ public class OriginalTextService {
         OriginalText origTextSaved = this.originalTextRepository.save(originalText);
         return Optional.of(origTextSaved);
     }
-
     public Optional<OriginalText> find(Long id) {
         return this.originalTextRepository.findById(id);
+    }
+    public void deleteByOrigTextId(long origTextId) throws EmptyResultDataAccessException {
+        this.originalTextRepository.deleteById(origTextId);
     }
 }

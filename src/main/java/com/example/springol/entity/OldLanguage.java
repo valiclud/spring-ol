@@ -17,6 +17,6 @@ public class OldLanguage {
     private String language;
     private String period;
 
-    @OneToMany(mappedBy = "old_language")
+    @OneToMany(mappedBy = "oldLanguage")
     private Set<OriginalText> originalTexts;
 }
