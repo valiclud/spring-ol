@@ -2,6 +2,7 @@ package com.example.springol.web.api;
 
 import com.example.springol.data.OriginalTextService;
 import com.example.springol.entity.OriginalText;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -10,17 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-
 @RestController
+@Slf4j
 @RequestMapping(path = "/api/originaltexts", produces = "application/json")
-//@CrossOrigin(origins = {"http://oldlanguages:8080", "http://oldlanguages.com"})
+@CrossOrigin(origins = {"http://oldlanguages:8080", "http://oldlanguages.com"})
 public class OriginalTextApiController {
 
     @Autowired
     private OriginalTextService originalTextService;
-  /*  public OriginalTextApiController(OriginalTextService originalTextService) {
-        this.originalTextService = originalTextService;
-    } */
 
     @GetMapping(params = "recent")
     public List<OriginalText> allOriginalTexts() {
@@ -41,7 +39,7 @@ public class OriginalTextApiController {
         try {
             originalTextService.deleteByOrigTextId(origTextId);
         } catch (EmptyResultDataAccessException ex) {
-            //log.error(ex.toString());
+            log.error(ex.toString());
         }
     }
 }
