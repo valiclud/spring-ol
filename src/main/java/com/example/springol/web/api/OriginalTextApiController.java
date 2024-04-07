@@ -14,7 +14,7 @@ import java.util.Optional;
 @RestController
 @Slf4j
 @RequestMapping(path = "/api/originaltexts", produces = "application/json")
-@CrossOrigin(origins = {"http://oldlanguages:8080", "http://oldlanguages.com"})
+//@CrossOrigin(origins = {"http://oldlanguages:8080", "http://oldlanguages.com"})
 public class OriginalTextApiController {
 
     @Autowired
